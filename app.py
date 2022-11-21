@@ -1,5 +1,7 @@
 from tkinter import *
 from pages.page01 import page_data_01
+from pages.page02 import *
+
 
 root = Tk()
 
