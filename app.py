@@ -36,7 +36,7 @@ pages_array_2 = [page_data_10,
                  page_data_14,
                  page_data_15]
 
-current_page = 2
+current_page = 1
 
 my_text = page_data_01
 
@@ -84,17 +84,21 @@ def increase_page_number():
                     myLabel.config(text=w)
 
 
+myFrame = Frame(root)
+
 # create a button widget and attached
 # with counter function
-myButton1 = Button(root, text="<", command=decrease_page_number)
-myButton2 = Button(root, text=">", command=increase_page_number)
+myButton1 = Button(myFrame, text="<", command=decrease_page_number)
+myButton2 = Button(myFrame, text=">", command=increase_page_number)
 
 # create a Label widget
 # Initial Label widget content
 myLabel = Label(root, text="Hello GitHub")
 
+
 myLabel.pack(pady=20)
-myButton1.pack(pady=20)
-myButton2.pack(pady=20)
+myFrame.pack(pady=20)
+myButton1.pack(side=LEFT)
+myButton2.pack(side=RIGHT)
 
 root.mainloop()
