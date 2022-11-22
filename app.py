@@ -35,7 +35,7 @@ pages_array = [page_data_01,
               page_data_14,
               page_data_15]
 
-current_page = 0
+current_page = 1
 
 my_text = page_data_01
 
@@ -53,18 +53,23 @@ def update_text():
 
 def increase_page_number():
 
-    global counter
-
-
+    global current_page
 
 
 def decrease_page_number():
 
-    global counter
+    global current_page
     global pages_array
-    if counter > 1:
-        for x in pages_array:
-            print(x[5:6])
+    if current_page < 15:
+        current_page += 1
+        if current_page < 10:
+            for z in pages_array:
+                if z[6:7] == str(current_page):
+                    myLabel.config(text=x)
+        if 10 <= current_page <= 15:
+            for w in pages_array:
+                if w[5:7] == str(current_page):
+                    myLabel.config(text=x)
 
 
 
@@ -72,12 +77,18 @@ def decrease_page_number():
 
 # create a button widget and attached
 # with counter function
-myButton = Button(root, text="Click", command=update_text)
+myButton = Button(root, text="Click", command=decrease_page_number)
 
 # create a Label widget
 # Initial Label widget content
 myLabel = Label(root, text="Hello GitHub")
 
+for x in pages_array:
+    print(x[5:7])
+
+print("---------")
+for x in pages_array:
+    print(x[6:7])
 
 myLabel.pack(pady=20)
 myButton.pack(pady=20)
