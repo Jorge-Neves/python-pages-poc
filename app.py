@@ -20,20 +20,20 @@ root = Tk()
 root.geometry("500x250")
 
 pages_array = [page_data_01,
-              page_data_02,
-              page_data_03,
-              page_data_04,
-              page_data_05,
-              page_data_06,
-              page_data_07,
-              page_data_08,
-              page_data_09,
-              page_data_10,
-              page_data_11,
-              page_data_12,
-              page_data_13,
-              page_data_14,
-              page_data_15]
+               page_data_02,
+               page_data_03,
+               page_data_04,
+               page_data_05,
+               page_data_06,
+               page_data_07,
+               page_data_08,
+               page_data_09,
+               page_data_10,
+               page_data_11,
+               page_data_12,
+               page_data_13,
+               page_data_14,
+               page_data_15]
 
 current_page = 1
 
@@ -51,13 +51,11 @@ def update_text():
     myLabel.config(text=my_text)
 
 
-def increase_page_number():
-
+def decrease_page_number():
     global current_page
 
 
-def decrease_page_number():
-
+def increase_page_number():
     global current_page
     global pages_array
     if current_page < 15:
@@ -65,14 +63,11 @@ def decrease_page_number():
         if current_page < 10:
             for z in pages_array:
                 if z[6:7] == str(current_page):
-                    myLabel.config(text=x)
+                    myLabel.config(text=z)
         if 10 <= current_page <= 15:
             for w in pages_array:
                 if w[5:7] == str(current_page):
-                    myLabel.config(text=x)
-
-
-
+                    myLabel.config(text=w)
 
 
 # create a button widget and attached
