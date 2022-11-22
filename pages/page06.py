@@ -1,1 +1,1 @@
-page_data_06 = "Page 01\n\nLore Ipsum"
+page_data_06 = "Page 06\n\nLore Ipsum"
