@@ -19,23 +19,24 @@ root = Tk()
 
 root.geometry("500x250")
 
-pages_array = [page_data_01,
-               page_data_02,
-               page_data_03,
-               page_data_04,
-               page_data_05,
-               page_data_06,
-               page_data_07,
-               page_data_08,
-               page_data_09,
-               page_data_10,
-               page_data_11,
-               page_data_12,
-               page_data_13,
-               page_data_14,
-               page_data_15]
+pages_array_1 = [page_data_01,
+                 page_data_02,
+                 page_data_03,
+                 page_data_04,
+                 page_data_05,
+                 page_data_06,
+                 page_data_07,
+                 page_data_08,
+                 page_data_09]
 
-current_page = 1
+pages_array_2 = [page_data_10,
+                 page_data_11,
+                 page_data_12,
+                 page_data_13,
+                 page_data_14,
+                 page_data_15]
+
+current_page = 2
 
 my_text = page_data_01
 
@@ -53,39 +54,47 @@ def update_text():
 
 def decrease_page_number():
     global current_page
+    global pages_array_1
+    global pages_array_2
+    if current_page > 1:
+        current_page -= 1
+        if current_page < 10:
+            for z in pages_array_1:
+                if z[6:7] == str(current_page):
+                    myLabel.config(text=z)
+        if 10 <= current_page <= 15:
+            for w in pages_array_2:
+                if w[5:7] == str(current_page):
+                    myLabel.config(text=w)
 
 
 def increase_page_number():
     global current_page
-    global pages_array
+    global pages_array_1
+    global pages_array_2
     if current_page < 15:
         current_page += 1
         if current_page < 10:
-            for z in pages_array:
+            for z in pages_array_1:
                 if z[6:7] == str(current_page):
                     myLabel.config(text=z)
         if 10 <= current_page <= 15:
-            for w in pages_array:
+            for w in pages_array_2:
                 if w[5:7] == str(current_page):
                     myLabel.config(text=w)
 
 
 # create a button widget and attached
 # with counter function
-myButton = Button(root, text="Click", command=decrease_page_number)
+myButton1 = Button(root, text="<", command=decrease_page_number)
+myButton2 = Button(root, text=">", command=increase_page_number)
 
 # create a Label widget
 # Initial Label widget content
 myLabel = Label(root, text="Hello GitHub")
 
-for x in pages_array:
-    print(x[5:7])
-
-print("---------")
-for x in pages_array:
-    print(x[6:7])
-
 myLabel.pack(pady=20)
-myButton.pack(pady=20)
+myButton1.pack(pady=20)
+myButton2.pack(pady=20)
 
 root.mainloop()
